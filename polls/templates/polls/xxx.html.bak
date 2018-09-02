@@ -1,0 +1,6 @@
+
+<form action="{% url 'polls:xxx' %}" method="post">
+{% csrf_token %}
+<input name="xxx" value="投票" />
+<input type="submit" value="投票" />
+</form>
