@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.generic.base import View
 from .models import Choice, Question,user
-import uuid
+import uuid,datetime
 #from django.template import loader
 # Create your views here.
 def index(request):
@@ -37,10 +37,13 @@ def xxx(request):
        if request.method=='GET':     
            return render(request,'polls/xxx.html')       
        if request.method=='POST':
-           a=request.POST['xxx']
-           b=user.objects.create(username=str(uuid.uuid1()), pwd=str(uuid.uuid4()))
-           return render(request,'polls/xxx.html')
-          # return HttpResponse(request.POST['xxx'])
+           username=request.POST['username']
+           email=request.POST['email']
+           password=request.POST['pwd']
+           
+           b=user.objects.create(username=username,email=email,pwd=password,time= datetime.datetime.now())
+        #   return render(request,'polls/xxx.html')
+           return HttpResponse(request.POST['username'])
            
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
