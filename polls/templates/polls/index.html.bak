@@ -1,4 +1,11 @@
-<h1>Django投票系统</h1>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<h1>Hello Django</h1>
+
+
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}

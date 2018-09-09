@@ -4,7 +4,7 @@
 {% csrf_token %}
 <input name="username"  />
 <input name="email" />
-<input name="password" />
+<input name="pwd" />
 
 
 <input type="submit" value="投票" />
